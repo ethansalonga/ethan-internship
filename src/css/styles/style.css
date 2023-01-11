@@ -16714,3 +16714,50 @@ img {
 .no-cursor {
   cursor: not-allowed;
 }
+
+.swiper-button-prev-unique {
+  position: absolute;
+  top: 40%;
+  left: -8px;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.swiper-button-prev-unique::after {
+  content: "<";
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.swiper-button-next-unique {
+  position: absolute;
+  top: 40%;
+  right: -8px;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.swiper-button-next-unique::after {
+  content: ">";
+  font-size: 24px;
+  font-weight: bold;
+}

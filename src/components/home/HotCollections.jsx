@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper"
+import "swiper/css"
+import "swiper/css/navigation"
 
 const HotCollections = () => {
   const [nftsList, setNftsList] = useState([])
@@ -30,40 +34,64 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {nftsList.map(nft => (
-            <div
-              className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-              key={nft.id}
+          <div style={{ position: "relative" }}>
+            <Swiper
+              modules={[Navigation]}
+              navigation={{
+                nextEl: ".swiper-button-next-unique",
+                prevEl: ".swiper-button-prev-unique",
+              }}
+              loop={true}
+              spaceBetween={10}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                640: {
+                  slidesPerView: 2,
+                },
+                1040: {
+                  slidesPerView: 4,
+                },
+              }}
             >
-              <div className="nft_coll">
-                <div className="nft_wrap">
-                  <Link to={`/item-details/${nft.nftId}`}>
-                    <img
-                      src={nft.nftImage}
-                      className="lazy img-fluid"
-                      alt=""
-                    />
-                  </Link>
-                </div>
-                <div className="nft_coll_pp">
-                  <Link to="/author">
-                    <img
-                      className="lazy pp-coll"
-                      src={nft.authorImage}
-                      alt=""
-                    />
-                  </Link>
-                  <i className="fa fa-check"></i>
-                </div>
-                <div className="nft_coll_info">
-                  <Link to="/explore">
-                    <h4>{nft.title}</h4>
-                  </Link>
-                  <span>ERC-{nft.code}</span>
-                </div>
-              </div>
-            </div>
-          ))}
+              {nftsList.map(nft => (
+                <SwiperSlide>
+                  <div key={nft.id}>
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to={`/item-details/${nft.nftId}`}>
+                          <img
+                            src={nft.nftImage}
+                            className="lazy img-fluid"
+                            alt=""
+                          />
+                        </Link>
+                      </div>
+                      <div className="nft_coll_pp">
+                        <Link to="/author">
+                          <img
+                            className="lazy pp-coll"
+                            src={nft.authorImage}
+                            alt=""
+                          />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <h4>{nft.title}</h4>
+                        </Link>
+                        <span>ERC-{nft.code}</span>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="swiper-button-prev-unique"></div>
+            <div className="swiper-button-next-unique"></div>
+          </div>
         </div>
       </div>
     </section>
