@@ -67,20 +67,20 @@ const HotCollections = () => {
                       >
                         <div className="nft_wrap">
                           <div
-                            className="lazy img-fluid hotCollections__skeleton"
+                            className="lazy img-fluid skeletonLoading"
                             style={{ height: "200px" }}
                           />
                         </div>
                         <div className="nft_coll_pp">
                           <div
-                            className="lazy pp-coll hotCollections__skeleton"
+                            className="lazy pp-coll skeletonLoading"
                             style={{ height: "60px", borderRadius: "50%" }}
                           />
                           <i className="fa fa-check"></i>
                         </div>
                         <div className="nft_coll_info">
                           <h4
-                            className="hotCollections__skeleton"
+                            className="skeletonLoading"
                             style={{
                               height: "20px",
                               width: "100px",
@@ -88,7 +88,7 @@ const HotCollections = () => {
                             }}
                           />
                           <div
-                            className="hotCollections__skeleton"
+                            className="skeletonLoading"
                             style={{
                               height: "20px",
                               width: "60px",
