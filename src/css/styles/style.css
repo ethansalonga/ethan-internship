@@ -16715,7 +16715,8 @@ img {
   cursor: not-allowed;
 }
 
-.swiper-button-prev-unique {
+.swiper-button-prev-unique,
+.swiper-button-prev-newItems {
   position: absolute;
   top: 40%;
   left: -8px;
@@ -16732,13 +16733,15 @@ img {
   cursor: pointer;
 }
 
-.swiper-button-prev-unique::after {
+.swiper-button-prev-unique::after,
+.swiper-button-prev-newItems::after {
   content: "<";
   font-size: 24px;
   font-weight: bold;
 }
 
-.swiper-button-next-unique {
+.swiper-button-next-unique,
+.swiper-button-next-newItems {
   position: absolute;
   top: 40%;
   right: -8px;
@@ -16756,19 +16759,20 @@ img {
   cursor: pointer;
 }
 
-.swiper-button-next-unique::after {
+.swiper-button-next-unique::after,
+.swiper-button-next-newItems::after {
   content: ">";
   font-size: 24px;
   font-weight: bold;
 }
 
-.hotCollections__skeleton {
+.skeletonLoading {
   position: relative;
   overflow: hidden;
   background-color: #dddbdd;
 }
 
-.hotCollections__skeleton::after {
+.skeletonLoading::after {
   position: absolute;
   top: 0;
   right: 0;
