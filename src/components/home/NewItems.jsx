@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper"
 import "swiper/css"
 import "swiper/css/navigation"
+import Countdown from "../UI/Countdown"
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([])
@@ -167,7 +168,11 @@ const NewItems = () => {
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
-                        <div className="de_countdown">5h 30m 32s</div>
+                        {item.expiryDate - Date.now() > 0 && (
+                          <div className="de_countdown">
+                            <Countdown expiryDate={item.expiryDate} />
+                          </div>
+                        )}
 
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">
