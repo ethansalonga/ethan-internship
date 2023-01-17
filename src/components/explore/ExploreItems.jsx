@@ -16,7 +16,7 @@ const ExploreItems = () => {
         setItemsShown(res.data.slice(0, 8))
       })
 
-    // setLoading(false)
+    setLoading(false)
   }
 
   function loadMore() {
@@ -25,6 +25,17 @@ const ExploreItems = () => {
     } else {
       setItemsShown(items.slice(0, 16))
     }
+  }
+
+  async function handleFilter(filterOption) {
+    await axios
+      .get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filterOption}`
+      )
+      .then(res => {
+        setItems(res.data)
+        setItemsShown(res.data.slice(0, 8))
+      })
   }
 
   useEffect(() => {
@@ -37,6 +48,7 @@ const ExploreItems = () => {
         <select
           id="filter-items"
           defaultValue=""
+          onChange={e => handleFilter(e.target.value)}
         >
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
