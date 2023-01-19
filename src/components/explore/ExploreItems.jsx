@@ -28,6 +28,8 @@ const ExploreItems = () => {
   }
 
   async function handleFilter(filterOption) {
+    setLoading(true)
+
     await axios
       .get(
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filterOption}`
@@ -36,6 +38,8 @@ const ExploreItems = () => {
         setItems(res.data)
         setItemsShown(res.data.slice(0, 8))
       })
+
+    setLoading(false)
   }
 
   useEffect(() => {
