@@ -4,7 +4,7 @@ import AuthorImage from "../../images/author_thumbnail.jpg"
 import nftImage from "../../images/nftImage.jpg"
 import NftItem from "../UI/NftItem"
 
-const AuthorItems = ({ nftCollection = null }) => {
+const AuthorItems = ({ nftCollection = null, authorImage = null }) => {
   return (
     <div className="de_tab_content">
       <div className="tab-1">
@@ -15,7 +15,10 @@ const AuthorItems = ({ nftCollection = null }) => {
                   className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                   key={index}
                 >
-                  <NftItem item={item} />
+                  <NftItem
+                    item={item}
+                    authorImage={authorImage}
+                  />
                 </div>
               ))
             : new Array(8).fill(0).map((_, index) => (
