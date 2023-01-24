@@ -8,6 +8,8 @@ import axios from "axios"
 const Author = () => {
   const authorId = window.location.pathname.split("/").pop()
   const [author, setAuthor] = useState()
+  const [followers, setFollowers] = useState(0)
+  const [isFollowing, setIsFollowing] = useState(false)
   const [loading, setLoading] = useState(true)
 
   async function getAuthor() {
@@ -15,9 +17,22 @@ const Author = () => {
       .get(
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
       )
-      .then(res => setAuthor(res.data))
+      .then(res => {
+        setAuthor(res.data)
+        setFollowers(res.data.followers)
+      })
 
     setLoading(false)
+  }
+
+  function handleFollow() {
+    if (!isFollowing) {
+      setFollowers(prev => prev + 1)
+    } else {
+      setFollowers(prev => prev - 1)
+    }
+
+    setIsFollowing(prev => !prev)
   }
 
   useEffect(() => {
@@ -138,9 +153,14 @@ const Author = () => {
                       <div className="profile_follow de-flex">
                         <div className="de-flex-col">
                           <div className="profile_follower">
-                            {author.followers} followers
+                            {followers} followers
                           </div>
-                          <button className="btn-main">Follow</button>
+                          <button
+                            className="btn-main"
+                            onClick={handleFollow}
+                          >
+                            {isFollowing ? "Unfollow" : "Follow"}
+                          </button>
                         </div>
                       </div>
                     </div>
