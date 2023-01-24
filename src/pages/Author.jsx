@@ -39,10 +39,6 @@ const Author = () => {
     getAuthor()
   }, [])
 
-  useEffect(() => {
-    console.log(author)
-  }, [author])
-
   return (
     <div id="wrapper">
       <div
@@ -68,43 +64,40 @@ const Author = () => {
                     <div className="d_profile de-flex">
                       <div className="de-flex-col">
                         <div className="profile_avatar">
-                          <img
-                            src={AuthorImage}
+                          <div
+                            className="skeletonLoading"
+                            style={{
+                              width: "150px",
+                              height: "150px",
+                              borderRadius: "100%",
+                            }}
                             alt=""
                           />
 
                           <i className="fa fa-check"></i>
                           <div className="profile_name">
-                            <h4>
-                              Monica Lucas
-                              <span className="profile_username">
-                                @monicaaaa
-                              </span>
-                              <span
-                                id="wallet"
-                                className="profile_wallet"
-                              >
-                                UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
-                              </span>
-                              <button
-                                id="btn_copy"
-                                title="Copy Text"
-                              >
-                                Copy
-                              </button>
-                            </h4>
+                            <h4
+                              className="skeletonLoading"
+                              style={{
+                                width: "200px",
+                                height: "94px",
+                                borderRadius: "8px",
+                              }}
+                            ></h4>
                           </div>
                         </div>
                       </div>
                       <div className="profile_follow de-flex">
                         <div className="de-flex-col">
-                          <div className="profile_follower">573 followers</div>
-                          <Link
-                            to="#"
-                            className="btn-main"
-                          >
-                            Follow
-                          </Link>
+                          <div
+                            className="profile_follower skeletonLoading"
+                            style={{
+                              width: "100px",
+                              height: "26px",
+                              borderRadius: "8px",
+                            }}
+                          />
+                          <button className="btn-main">Follow</button>
                         </div>
                       </div>
                     </div>
