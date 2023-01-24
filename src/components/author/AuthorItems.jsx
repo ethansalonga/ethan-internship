@@ -1,7 +1,7 @@
 import React from "react"
 import NftItem from "../UI/NftItem"
 
-const AuthorItems = ({ nftCollection = null, authorImage = null }) => {
+const AuthorItems = ({ nftCollection, authorImage, authorId }) => {
   return (
     <div className="de_tab_content">
       <div className="tab-1">
@@ -15,6 +15,7 @@ const AuthorItems = ({ nftCollection = null, authorImage = null }) => {
                   <NftItem
                     item={item}
                     authorImage={authorImage}
+                    authorId={authorId}
                   />
                 </div>
               ))

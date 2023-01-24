@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react"
 import AuthorBanner from "../images/author_banner.jpg"
 import AuthorItems from "../components/author/AuthorItems"
-import { Link } from "react-router-dom"
-import AuthorImage from "../images/author_thumbnail.jpg"
 import axios from "axios"
 
 const Author = () => {
@@ -164,6 +162,7 @@ const Author = () => {
                       <AuthorItems
                         nftCollection={author.nftCollection}
                         authorImage={author.authorImage}
+                        authorId={author.authorId}
                       />
                     </div>
                   </div>
