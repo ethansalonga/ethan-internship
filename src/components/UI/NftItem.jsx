@@ -2,18 +2,18 @@ import React from "react"
 import { Link } from "react-router-dom"
 import Countdown from "../UI/Countdown"
 
-function NftItem({ item }) {
+function NftItem({ item, authorImage, authorId }) {
   return (
     <div className="nft__item">
       <div className="author_list_pp">
         <Link
-          to={`/author/${item.authorId}`}
+          to={`/author/${item.authorId || authorId}`}
           data-bs-toggle="tooltip"
           data-bs-placement="top"
         >
           <img
             className="lazy"
-            src={item.authorImage}
+            src={item.authorImage || authorImage}
             alt=""
           />
           <i className="fa fa-check"></i>
